@@ -332,37 +332,31 @@ a:hover{
 
 
 
-/* Section de galerie en Masonry */
 .gallery-section {
-    padding: 20px;
-    background-color: #f4f4f4;
+    max-width: 1200px;
+    margin: auto;
 }
-
-  /* Masonry Grid : utilisation de colonnes */
 .gallery-grid {
     column-count: 3;
     column-gap: 1em;
 }
-
-  /* Chaque élément de la galerie */
 .gallery-item {
+    break-inside: avoid;
     margin-bottom: 1em;
     overflow: hidden;
     position: relative;
+    cursor: pointer;
+    border-radius: 8px;
 }
-
-  /* Image : zoom au survol */
 .gallery-item img {
     width: 100%;
-    transition: transform 0.3s ease;
-    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    display: block;
+    border-radius: 8px;
 }
-
 .gallery-item:hover img {
     transform: scale(1.1);
 }
-
-  /* Lightbox Overlay */
 .lightbox-overlay {
     position: fixed;
     top: 0;
@@ -370,23 +364,20 @@ a:hover{
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
-    display: none; /* cachée par défaut */
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
-
-  /* Affichage actif de la lightbox */
 .lightbox-overlay.active {
     display: flex;
 }
-
 .lightbox-overlay img {
     max-width: 90%;
     max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
-
-  /* Bouton de fermeture */
 .lightbox-close {
     position: absolute;
     top: 20px;
@@ -396,8 +387,16 @@ a:hover{
     cursor: pointer;
     z-index: 1001;
 }
-
-
+@media (max-width: 768px) {
+    .gallery-grid {
+        column-count: 2;
+    }
+}
+@media (max-width: 480px) {
+    .gallery-grid {
+        column-count: 1;
+    }
+}
 
 
 

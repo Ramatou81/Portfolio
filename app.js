@@ -9,7 +9,6 @@ window.onscroll = function() {
       navbar.classList.remove("sticky");
   }
 };
-
 // Fonction pour activer/désactiver le menu hamburger
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("navLinks");
@@ -22,33 +21,27 @@ hamburger.addEventListener("click", () => {
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const galleryImages = document.querySelectorAll('.gallery-item img');
-  const lightboxOverlay = document.getElementById('lightboxOverlay');
-  const lightboxClose = document.getElementById('lightboxClose');
-  const lightboxImg = lightboxOverlay.querySelector('img');
+const galleryItems = document.querySelectorAll('.gallery-item img');
+        const lightbox = document.querySelector('.lightbox-overlay');
+        const lightboxImg = document.querySelector('#lightbox-img');
+        const closeLightbox = document.querySelector('.lightbox-close');
 
-  // Ouvrir la lightbox au clic sur une image
-  galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightboxOverlay.classList.add('active');
-    });
-  });
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                lightboxImg.src = item.src;
+                lightbox.classList.add('active');
+            });
+        });
 
-  // Fermer la lightbox au clic sur le bouton de fermeture
-  lightboxClose.addEventListener('click', () => {
-    lightboxOverlay.classList.remove('active');
-  });
+        closeLightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
 
-  // Fermer en cliquant en dehors de l'image
-  lightboxOverlay.addEventListener('click', (e) => {
-    if (e.target === lightboxOverlay) {
-      lightboxOverlay.classList.remove('active');
-    }
-  });
-});
-
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+            }
+        });
 
 
 
